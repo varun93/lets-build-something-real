@@ -9,6 +9,7 @@ Here are the some of the things I have in mind.
 - JSON parser
 - HTML to Markdown converter
 - Build a web server
+- Do some serious functional programming stuff. Yet to decide on the language/source to do this.
 - Read [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) and make notes.
 - Read [The Architecture of Open Source Applications](http://aosabook.org/en/) and make notes.
 
