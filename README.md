@@ -8,9 +8,11 @@ Here are the some of the things I have in mind.
 - Redux middleware from scratch which inspired by [this](https://redux.js.org/advanced/middleware). I have been wanting to write this for a long time! 
 - JSON parser
 - HTML to Markdown converter
-- Build a web server
+- Web server
+- Memory Allocator with different [memory allocation techniques](https://www.cs.drexel.edu/~bls96/excerpt3.pdf).
+- Web Crawler
 - Do some serious functional programming stuff. Yet to decide on the language/source to do this.
 - Read [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) and make notes.
 - Read [The Architecture of Open Source Applications](http://aosabook.org/en/) and make notes.
 
-I will update the list as and when I make some real progress on the ones I have currently listed! 
+Will keep updating the list as and when I make some real progress on the ones I have currently listed! 
