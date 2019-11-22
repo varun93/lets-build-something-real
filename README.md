@@ -9,5 +9,7 @@ Here are the some of the things I have in mind.
 - JSON parser
 - HTML to Markdown converter
 - Build a web server
+- Read [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) and make notes.
+- Read [The Architecture of Open Source Applications](http://aosabook.org/en/) and make notes.
 
 I will update the list as and when I make some real progress on the ones I have currently listed! 
