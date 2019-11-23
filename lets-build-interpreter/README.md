@@ -17,3 +17,8 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
 
 - Part-3
     - Multiple terms to add and subtract
+
+- Part-4
+    - A note about BNF or Context Free grammars
+    - Contains several rules
+    - Rules are formed by having non-terminals as LHS and terminals/non-terminals at RHS.
