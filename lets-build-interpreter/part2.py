@@ -17,51 +17,58 @@ class Interpreter:
     def __init__(self, text):
         self.text = text
         self.current_token = None
+        self.current_char = text[0]
         self.pos = 0
 
     def error(self):
         raise Exception("Parse Error")
     
     def skip_white_spaces(self):
-
         text = self.text
-
-        while self.pos < len(text) and text[self.pos].isspace():
-            self.pos += 1 
+        while self.current_char is not None and self.current_char.isspace():
+            self.advance()
    
     def integer(self):
-
         number = 0
-        text = self.text
-
-        while self.pos < len(text) and text[self.pos].isdigit():
-            number = number*10 + int(text[self.pos])
-            self.pos += 1
+        while self.current_char is not None and self.current_char.isdigit():
+            number = number*10 + int(self.current_char)
+            self.advance()
         
         return number
+
+    # advance the current position and set the current char
+    def advance(self):
+        
+        text = self.text 
+
+        self.pos += 1     
+
+        if self.pos < len(text):
+            self.current_char = text[self.pos]
+        else:
+            self.current_char = None
+
 
     def get_next_token(self):
         
         text, token = self.text, None
     
-        while self.pos < len(text):
+        while self.current_char is not None:
                 
-            current_char = text[self.pos]
-
-            if current_char.isspace():
+            if self.current_char.isspace():
                 self.skip_white_spaces()
 
-            elif current_char.isdigit():
+            elif self.current_char.isdigit():
                 token = Token(INTEGER, self.integer())
                 break
 
-            elif current_char == '+':
-                self.pos += 1
+            elif self.current_char == '+':
+                self.advance()
                 token = Token(PLUS, '+') 
                 break
             
-            elif current_char == '-':
-                self.pos += 1
+            elif self.current_char == '-':
+                self.advance()
                 token = Token(MINUS, '-') 
                 break
 
