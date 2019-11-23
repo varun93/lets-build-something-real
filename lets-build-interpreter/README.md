@@ -14,3 +14,6 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
     - Support for minus
     - Lexeme is a sequence of characters that form a token.
     - The logic to scan the next character is abstracted by using a self.advance method
+
+- Part-3
+    - Multiple terms to add and subtract
