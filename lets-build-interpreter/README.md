@@ -22,3 +22,12 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
     - A note about BNF or Context Free grammars
     - Contains several rules
     - Rules are formed by having non-terminals as LHS and terminals/non-terminals at RHS.
+    - Sample Grammar
+        - expr : factor ((MUL | DIV) factor) * 
+        - factor : INTEGER
+    -  3 * 7 / 2
+        - expr 
+        - factor ((MUL | DIV) factor)*
+        - factor MUL factor DIV factor
+        - INTEGER MUL INTEGER DIV INTEGER
+        -   3     *     7      /   2
