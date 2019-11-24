@@ -22,7 +22,7 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
     - A note about BNF or Context Free grammars
     - Contains several rules
     - Rules are formed by having non-terminals as LHS and terminals/non-terminals at RHS.
-    - Sample Grammar
+    - Sample Grammar for multiplication/divison of grammar 
         - expr : factor ((MUL | DIV) factor) * 
         - factor : INTEGER
     -  3 * 7 / 2
@@ -31,3 +31,19 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
         - factor MUL factor DIV factor
         - INTEGER MUL INTEGER DIV INTEGER
         -   3     *     7      /   2
+
+- Part-5
+    - Gramamar for evaluting arithmetic expressions
+    - expr : term ((PLUS | MINUS) term)*
+    - term : factor ((MUL | DIV) factor)*
+    - factor : INTEGER
+
+    Example: 3  +  4  *  5  -  6
+    
+    => (3  +  4  *  5)  -  (6)
+    => ((3 + (4 * 5)) - 6) 
+    => T1 - T3
+    => T1 <- T2 + T3
+    => T2 <- 3
+    => T3 <- 4 MUL 5
+    => T3 <- 6 
