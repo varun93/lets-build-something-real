@@ -1,4 +1,4 @@
-INTEGER, PLUS, MINUS, MUL, DIV, EOF = 'INTEGER', 'PLUS', 'MINUS', 'MUL', 'DIV', 'EOF'
+INTEGER, PLUS, MINUS, MUL, DIV, LPAREN, RPAREN, EOF = 'INTEGER', 'PLUS', 'MINUS', 'MUL', 'DIV', 'LPAREN', 'RPAREN', 'EOF'
 
 class Token:
 
@@ -16,9 +16,10 @@ class Interpreter:
 
     def __init__(self, text):
         self.text = text
-        self.current_token = None
         self.current_char = text[0]
         self.pos = 0
+        self.current_token = self.get_next_token()
+
 
     def error(self):
         raise Exception("Parse Error")
@@ -82,6 +83,16 @@ class Interpreter:
                 token = Token(DIV, '/') 
                 break
 
+            elif self.current_char == '(':
+                self.advance()
+                token = Token(LPAREN, '(') 
+                break
+
+            elif self.current_char == ')':
+                self.advance()
+                token = Token(RPAREN, ')') 
+                break
+
             else:
                 self.error()
 
@@ -95,8 +106,16 @@ class Interpreter:
 
     def factor(self):
         token = self.current_token
-        self.eat(INTEGER)
-        return token.value
+        if token.type == INTEGER:
+            self.eat(INTEGER)
+            return token.value
+        elif token.type == LPAREN:
+            self.eat(LPAREN)
+            expr = self.expr()
+            self.eat(RPAREN)
+            return expr
+        else:
+            self.error()
 
     # currently assume term to be 
     def term(self):
@@ -116,7 +135,6 @@ class Interpreter:
 
     def expr(self):
         
-        self.current_token = self.get_next_token()
         result = self.term()
 
         while self.current_token.type in (PLUS, MINUS): 

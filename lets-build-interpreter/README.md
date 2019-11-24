@@ -51,4 +51,4 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
 - Part-6
     - expr : term ((PLUS | MINUS) term)*
     - term : factor ((MUL | DIV) factor)*
-    - factor : LPAREN|INTEGER 
+    - factor : INTEGER | LPAREN expr RPAREN
