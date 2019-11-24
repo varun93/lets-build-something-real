@@ -6,9 +6,9 @@ Here are the some of the things I have in mind.
 
 - Build an interpreter for some language inspired by [Crafting Interpreters](https://www.craftinginterpreters.com) and [Let’s Build A Simple Interpreter](https://ruslanspivak.com/lsbasi-part1/). I am going to start with this.
 - Redux middleware from scratch which inspired by [this](https://redux.js.org/advanced/middleware). I have been wanting to write this for a long time! 
-- JSON parser
+- JSON parser inspired by [Writing a JSON Parser](http://notes.eatonphil.com/writing-a-simple-json-parser.html).
 - HTML to Markdown converter
-- Web server
+- Web server inspired by [Let's build a Web Server](https://ruslanspivak.com/lsbaws-part1/).
 - Memory Allocator with different [memory allocation techniques](https://www.cs.drexel.edu/~bls96/excerpt3.pdf).
 - Web Crawler
 - Do some serious functional programming stuff. Yet to decide on the language/source to do this.

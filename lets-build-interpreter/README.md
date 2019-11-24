@@ -47,3 +47,8 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
     => T2 <- 3
     => T3 <- 4 MUL 5
     => T3 <- 6 
+
+- Part-6
+    - expr : term ((PLUS | MINUS) term)*
+    - term : factor ((MUL | DIV) factor)*
+    - factor : LPAREN|INTEGER 
