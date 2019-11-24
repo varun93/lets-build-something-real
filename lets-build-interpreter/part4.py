@@ -11,17 +11,13 @@ class Token:
     def __str__(self):
         return 'Token({type}, {value})'.format(self.type, self.value)
 
-# why don't we have a token for a whitespace?
-class Interpreter:
+
+class Lexer:
 
     def __init__(self, text):
         self.text = text
-        self.current_token = None
         self.current_char = text[0]
         self.pos = 0
-
-    def error(self):
-        raise Exception("Parse Error")
     
     def skip_white_spaces(self):
         text = self.text
@@ -77,10 +73,21 @@ class Interpreter:
 
         return token
 
+
+# why don't we have a token for a whitespace?
+class Interpreter:
+
+    def __init__(self, lexer):
+        self.lexer = lexer
+        self.current_token = lexer.get_next_token()
+
+    def error(self):
+        raise Exception("Parse Error")
+    
+    # consume current token and point to the next token
     def eat(self, token_type):
-        
         if self.current_token.type == token_type:
-            self.current_token = self.get_next_token()
+            self.current_token = self.lexer.get_next_token()
         else:
             self.error()
 
@@ -92,7 +99,6 @@ class Interpreter:
 
     def expr(self):
         
-        self.current_token = self.get_next_token()
         result = self.term()
 
         while self.current_token.type in (MUL, DIV): 
@@ -118,7 +124,8 @@ def main():
         if not text:
             continue
 
-        interpreter = Interpreter(text)
+        lexer = Lexer(text)
+        interpreter = Interpreter(lexer)
         result = interpreter.expr()
         print(result) 
 
