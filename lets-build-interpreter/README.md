@@ -52,3 +52,8 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
     - expr : term ((PLUS | MINUS) term)*
     - term : factor ((MUL | DIV) factor)*
     - factor : INTEGER | LPAREN expr RPAREN
+
+- Part-7
+    - Abstract Syntax Trees
+        - The parser takes the tokens from lexer and convert them to an abstract syntax tree and passes it onto the interpreter which intrpets the AST.
+        
