@@ -65,6 +65,14 @@ class Lexer(object):
             if self.current_char == "/":
                 self.advance()
                 return Token(DIV, "/")
+            
+            if self.current_char == "(":
+                self.advance()
+                return Token(LPAREN, "(")
+
+            if self.current_char == ")":
+                self.advance()
+                return Token(RPAREN, ")")
 
         return Token(EOF, None)        
 
@@ -73,13 +81,12 @@ class ASTNode(object):
 
 class OpNode(ASTNode):
     def __init__(self, left, op, right):
-        self.token = self.op = op
+        self.op = op
         self.left = left
         self.right = right
 
 class NumNode:
     def __init__(self, token):
-        self.token = token
         self.value = token.value
 
 """
@@ -162,7 +169,7 @@ class Interpreter:
         elif isinstance(node, NumNode):
             return self.visitNum(node)
         else:
-            self.error()
+            self.error(node)
 
     def error(self, node):
         raise Exception('No visit_{} method'.format(type(node).__name__))
