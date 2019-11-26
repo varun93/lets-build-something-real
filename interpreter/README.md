@@ -56,4 +56,13 @@ I am following the [this](https://ruslanspivak.com/lsbasi-part1/) tutorial.
 - Part-7
     - Abstract Syntax Trees
         - The parser takes the tokens from lexer and convert them to an abstract syntax tree and passes it onto the interpreter which intrpets the AST.
-        
+    - ASTs vs Parse Trees
+        - Parse trees capture grammar of the language, while ASTs capture the operators in the interior nodes and operands as their children.
+    - Recursive descent parsing - Parser begins by constructing the top nodes of the parse tree and         gradually construct the lower nodes.
+
+- Part-8
+    - Support for unary operators
+    - Grammar
+        - expr : term ((PLUS | MINUS) term)*
+        - term : factor ((MUL | DIV) factor)*
+        - factor : (PLUS|MINUS)factor | INTEGER | LPAREN expr RPAREN
