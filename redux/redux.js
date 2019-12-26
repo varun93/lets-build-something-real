@@ -7,6 +7,7 @@ const createStore = (reducer, initialState) => {
   const dispatch = (action) => {
     state = reducer(action, state);
     subscribers.forEach(subscriber => subscriber(state));
+    return state;
   }
 
   // maybe push this?
