@@ -7,10 +7,15 @@ const createStore = (reducer, initialState) => {
   const dispatch = (action) => {
     state = reducer(action, state);
     subscribers.forEach(subscriber => subscriber(state));
-    return state;
+    return action;
   }
 
-  // maybe push this?
   const subscribe = (subscriber) => subscribers.push(subscriber);
-  return { dispatch, subscribe, getState };
+
+  const unsubscribe = (subscriber) => {
+    const index = subscribers.indexOf(subscriber);
+    subscribers.splice(index, 1);
+  };
+
+  return { dispatch, subscribe, unsubscribe, getState };
 }
